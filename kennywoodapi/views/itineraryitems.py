@@ -63,8 +63,7 @@ class ItineraryItems(ViewSet):
             Response -- Empty body with 204 status code
         """
         item = Itinerary.objects.get(pk=pk)
-        item.name = request.data["name"]
-        item.theme = request.data["theme"]
+        item.starttime = request.data["starttime"]
         item.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
